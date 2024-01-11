@@ -1,6 +1,6 @@
 # learn-build-share
 
-Keeping track my progress in the tools and technologies I learn
+Keeping track of my progress in the tools and technologies I learn
 
 ## framesworks/libraries
 
