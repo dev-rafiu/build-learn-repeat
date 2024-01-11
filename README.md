@@ -15,7 +15,7 @@ Keeping track my progress in the tools and technologies I learn
 - Redux and Redux Tool Kit
 - Zustand (more focus on this)
 
-##languages
+## languages
 
 - Typescript (more focus on this)
 - Polish JS skills
