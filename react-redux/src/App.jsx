@@ -1,32 +1,33 @@
 // components
 import Navbar from "./components/Navbar";
 import CartContainer from "./components/CartContainer";
+
 // items
 import cartItems from "./cart-items";
-// redux stuff
+import { Provider } from "react-redux";
 
-import {createStore} from 'redux'
+// redux stuff
+import { createStore } from "redux";
+
+// reducer
+import { reducer } from "./reducer";
 
 // initial store
-const initialState={
-  count:5
-}
-// reducer
-// eslint-disable-next-line no-unused-vars
-function reducer(state,action){
-  return state
-}
-const store =createStore(reducer,initialState)
-console.log(store.getState());
+const initialState = {
+  cart: cartItems,
+  totalAmount: 10,
+  totalItems: 1,
+};
+
+const store = createStore(reducer, initialState);
 
 function App() {
   // cart setup
-
   return (
-    <main>
-      <Navbar cart={store.getState()} />
-      <CartContainer cart={cartItems} />
-    </main>
+    <Provider store={store}>
+      <Navbar />
+      <CartContainer />
+    </Provider>
   );
 }
 

@@ -1,6 +1,11 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
+
+import { connect } from "react-redux";
+
 import CartItem from "./CartItem";
-const CartContainer = ({ cart = [] }) => {
+
+const CartContainer = ({ cart = [], totalAmount }) => {
   if (cart.length === 0) {
     return (
       <section className="cart">
@@ -18,18 +23,18 @@ const CartContainer = ({ cart = [] }) => {
       <header>
         <h2>your bag</h2>
       </header>
+
       {/* cart items */}
-      <article>
-        {cart.map(item => {
-          return <CartItem key={item.id} {...item} />;
-        })}
-      </article>
+      {cart.map((item) => {
+        return <CartItem key={item.id} {...item} />;
+      })}
+
       {/* cart footer */}
       <footer>
         <hr />
         <div className="cart-total">
           <h4>
-            total <span>$0.00</span>
+            total <span>${totalAmount}.00</span>
           </h4>
         </div>
         <button className="btn clear-btn">clear cart</button>
@@ -38,4 +43,8 @@ const CartContainer = ({ cart = [] }) => {
   );
 };
 
-export default CartContainer;
+function mapStateToProps(state) {
+  return { cart: state.cart, totalAmount: state.totalAmount };
+}
+
+export default connect(mapStateToProps)(CartContainer);
