@@ -1,13 +1,12 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
 
-import { ClearCart } from "../actions";
-
+// import { clearCart } from "../actions";
 import { connect } from "react-redux";
 
 import CartItem from "./CartItem";
-
-const CartContainer = ({ cart = [], totalAmount }) => {
+import { CLEAR_CART } from "../actions";
+const CartContainer = ({ cart = [], totalAmount, dispatch }) => {
   if (cart.length === 0) {
     return (
       <section className="cart">
@@ -19,6 +18,7 @@ const CartContainer = ({ cart = [], totalAmount }) => {
       </section>
     );
   }
+
   return (
     <section className="cart">
       {/* cart header */}
@@ -39,7 +39,10 @@ const CartContainer = ({ cart = [], totalAmount }) => {
             total <span>${totalAmount}.00</span>
           </h4>
         </div>
-        <button onClick={() => ClearCart()} className="btn clear-btn">
+        <button
+          onClick={() => dispatch({ type: CLEAR_CART })}
+          className="btn clear-btn"
+        >
           clear cart
         </button>
       </footer>
