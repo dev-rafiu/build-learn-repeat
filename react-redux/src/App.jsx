@@ -19,7 +19,7 @@ const initialState = {
   totalItems: 1,
 };
 
-const store = createStore(reducer, initialState);
+export const store = createStore(reducer, initialState);
 
 function App() {
   // cart setup

@@ -1,6 +1,8 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
 
+import { ClearCart } from "../actions";
+
 import { connect } from "react-redux";
 
 import CartItem from "./CartItem";
@@ -37,7 +39,9 @@ const CartContainer = ({ cart = [], totalAmount }) => {
             total <span>${totalAmount}.00</span>
           </h4>
         </div>
-        <button className="btn clear-btn">clear cart</button>
+        <button onClick={() => ClearCart()} className="btn clear-btn">
+          clear cart
+        </button>
       </footer>
     </section>
   );

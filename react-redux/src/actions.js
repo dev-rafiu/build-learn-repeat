@@ -1,5 +1,9 @@
+import { store } from "./App";
+
 export const INCREASE = "INCREASE";
 export const DECREASE = "DECREASE";
-export const RESET = "RESET";
+export const CLEAR_CART = "CLEAR_CART";
 
-export const actions = {};
+export function ClearCart() {
+  store.dispatch({ type: CLEAR_CART });
+}

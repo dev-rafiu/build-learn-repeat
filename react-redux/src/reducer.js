@@ -1,16 +1,9 @@
-import { INCREASE, DECREASE, RESET } from "./actions";
+import { INCREASE, DECREASE, CLEAR_CART } from "./actions";
 
 export function reducer(state, action) {
-  if (action.type === INCREASE) {
-    return { ...state, count: state.count + 1 };
-  }
-
-  if (action.type === DECREASE) {
-    return { ...state, count: state.count - 1 };
-  }
-
-  if (action.type === RESET) {
-    return { ...state, count: 0 };
+  if (action.type === CLEAR_CART) {
+    // console.log("clear cart");
+    return { ...state, cart: [] };
   }
 
   return state;
