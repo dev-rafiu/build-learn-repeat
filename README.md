@@ -23,3 +23,12 @@ Keeping track of my progress in learning new tools and technologies, deep dive a
 ## version control
 
 - Git and Github
+
+## Projects
+
+- Renting Marketplace
+- Online Marketplace
+- Music Player
+- Portfolio Website
+- Simple Blog
+- Expense Tracker
