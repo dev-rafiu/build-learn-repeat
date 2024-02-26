@@ -24,7 +24,7 @@ Keeping track of my progress in learning new tools and technologies, deep dive a
 
 - Git and Github
 
-## Projects
+## Projects to build
 
 - Renting Marketplace
 - Online Marketplace
@@ -32,3 +32,9 @@ Keeping track of my progress in learning new tools and technologies, deep dive a
 - Portfolio Website
 - Simple Blog
 - Expense Tracker
+
+### Currently building
+
+- react-hook-form
+- react-redux
+- react-pagination
