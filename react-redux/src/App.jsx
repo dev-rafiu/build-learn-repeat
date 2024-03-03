@@ -15,8 +15,8 @@ import { reducer } from "./reducer";
 // initial store
 const initialState = {
   cart: cartItems,
-  totalAmount: 10,
-  totalItems: 1,
+  totalAmount: 0,
+  totalItems: 0,
 };
 
 export const store = createStore(reducer, initialState);

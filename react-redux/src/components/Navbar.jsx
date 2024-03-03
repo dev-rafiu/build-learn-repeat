@@ -1,7 +1,5 @@
-/* eslint-disable react-refresh/only-export-components */
-/* eslint-disable react/prop-types */
-
 import { connect } from "react-redux";
+
 const Navbar = ({ totalItems }) => {
   return (
     <nav>
