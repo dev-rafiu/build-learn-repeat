@@ -23,3 +23,18 @@ Keeping track of my progress in learning new tools and technologies, deep dive a
 ## version control
 
 - Git and Github
+
+## Projects to build
+
+- Renting Marketplace
+- Online Marketplace
+- Music Player
+- Portfolio Website
+- Simple Blog
+- Expense Tracker
+
+### Currently building
+
+- react-hook-form
+- react-redux
+- react-pagination
