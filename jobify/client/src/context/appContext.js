@@ -8,7 +8,7 @@ const initialState = {
   showAlert: false,
   alertText: "",
   alertType: "",
-};
+};-
 
 const AppContext = createContext();
 const AppProvider = (children) => {
