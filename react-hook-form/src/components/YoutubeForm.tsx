@@ -8,7 +8,13 @@ type FormValues = {
 };
 
 function YouTubeForm() {
-  const form = useForm<FormValues>();
+  const form = useForm<FormValues>({
+    defaultValues: {
+      username: "kulkan",
+      email: "",
+      channel: "web dev simplified",
+    },
+  });
   const {
     register,
     control,
@@ -40,13 +46,16 @@ function YouTubeForm() {
             type="text"
             id="email"
             {...register("email", {
+              required: "Email is required",
               pattern: {
                 value: /^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/,
                 message: "Email is not valid",
               },
               validate: {
                 notAdmin: (fieldValue) => {
-                  return fieldValue !== "admin@gmail.com ";
+                  return fieldValue !== "admin@gmail.com"
+                    ? true
+                    : "admin@gmail.com is for admins only";
                 },
               },
             })}
