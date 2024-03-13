@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { FieldErrors, useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 
 type FormValues = {
@@ -29,9 +29,13 @@ function YouTubeForm() {
     console.log(data);
   };
 
+  const onError = (error: FieldErrors<FormValues>) => {
+    console.log(error);
+  };
+
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)} noValidate>
+      <form onSubmit={handleSubmit(onSubmit, onError)} noValidate>
         <div className="form-group">
           <label htmlFor="username">Username</label>
           <input
