@@ -5,6 +5,7 @@ type FormValues = {
   username: string;
   email: string;
   channel: string;
+  age: number;
 };
 
 function YouTubeForm() {
@@ -13,8 +14,10 @@ function YouTubeForm() {
       username: "kulkan",
       email: "",
       channel: "web dev simplified",
+      age: 23,
     },
   });
+
   const {
     register,
     control,
@@ -24,7 +27,6 @@ function YouTubeForm() {
 
   const onSubmit = (data: FormValues) => {
     console.log(data);
-    console.log("form submitted");
   };
 
   return (
@@ -73,6 +75,19 @@ function YouTubeForm() {
           <p className="error">{errors?.channel?.message}</p>
         </div>
 
+        <div className="form-group">
+          <label htmlFor="age">Age</label>
+          <input
+            min={0}
+            type="number"
+            id="age"
+            {...register("age", {
+              valueAsNumber: true,
+              required: "Age is required",
+            })}
+          />
+          <p className="error">{errors?.age?.message}</p>
+        </div>
         <button>submit</button>
       </form>
       <DevTool control={control} placement="bottom-right" />
