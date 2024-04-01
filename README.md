@@ -32,8 +32,9 @@ Keeping track of my progress in learning new tools and technologies, deep dive a
 - Portfolio Website
 - Simple Blog
 - Expense Tracker
+- Quiz App
 
-### Currently building
+### Current projects
 
 - react-hook-form
 - react-redux
