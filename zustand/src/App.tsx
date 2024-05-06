@@ -9,7 +9,7 @@ type TState = {
   updateBears: (bears: number) => void;
 };
 
-export const useStore = create<TState>((set) => ({
+export const useStore = create<TState>()((set) => ({
   bears: 1,
   increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
   removeAllBears: () => set({ bears: 0 }),
