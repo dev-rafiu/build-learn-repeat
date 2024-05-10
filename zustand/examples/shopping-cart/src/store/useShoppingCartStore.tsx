@@ -18,6 +18,11 @@ export const useShoppingCartStore = create<Store>()((set) => ({
   totalItems: 0,
   clearCart: () => set({ cart: [] }),
 
+  removeItem: (id) =>
+    set((state) => ({
+      cart: state.cart.filter((item) => item.id !== id),
+    })),
+
   increaseQuantity: (id) =>
     set((state) => ({
       cart: state.cart.map((item) => {
@@ -27,13 +32,12 @@ export const useShoppingCartStore = create<Store>()((set) => ({
 
   decreaseQuantity: (id) =>
     set((state) => ({
-      cart: state.cart.map((item) => {
-        return item.id !== id ? item : { ...item, quantity: item.quantity - 1 };
-      }),
-    })),
-
-  removeItem: (id) =>
-    set((state) => ({
-      cart: state.cart.filter((item) => item.id !== id),
+      cart: state.cart
+        .map((item) => {
+          return item.id !== id
+            ? item
+            : { ...item, quantity: item.quantity - 1 };
+        })
+        .filter((item) => item.quantity >= 1),
     })),
 }));
