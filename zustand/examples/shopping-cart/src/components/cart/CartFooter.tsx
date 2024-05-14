@@ -12,7 +12,7 @@ function CartFooter() {
           <hr />
           <div className="cart-total">
             <h4>total</h4>
-            <h4>{totalAmount}</h4>
+            <h4>{totalAmount()}</h4>
           </div>
           <button onClick={clearCart} className="btn clear-btn">
             clear cart
