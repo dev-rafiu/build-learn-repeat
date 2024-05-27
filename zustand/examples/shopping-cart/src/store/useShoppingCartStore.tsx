@@ -4,18 +4,32 @@ import cartItems from "../data/cart-items";
 
 interface Store {
   cart: TCartItem[];
-  totalAmount: number;
-  totalItems: number;
+  totalAmount: () => number;
+  totalItems: () => number;
   clearCart: () => void;
   increaseQuantity: (id: number) => void;
   decreaseQuantity: (id: number) => void;
   removeItem: (id: number) => void;
 }
 
-export const useShoppingCartStore = create<Store>()((set) => ({
+export const useShoppingCartStore = create<Store>()((set, get) => ({
   cart: cartItems,
-  totalAmount: 0,
-  totalItems: 0,
+  totalAmount: () => {
+    const { cart } = get();
+    if (cart.length)
+      return cart.map((item) => item.price).reduce((prev, curr) => prev + curr);
+    return 0;
+  },
+
+  totalItems: () => {
+    const { cart } = get();
+    if (cart.length)
+      return cart
+        .map((item) => item.quantity)
+        .reduce((prev, curr) => prev + curr);
+    return 0;
+  },
+
   clearCart: () => set({ cart: [] }),
 
   removeItem: (id) =>
@@ -40,4 +54,6 @@ export const useShoppingCartStore = create<Store>()((set) => ({
         })
         .filter((item) => item.quantity >= 1),
     })),
+
+  total: () => set(() => ({})),
 }));
