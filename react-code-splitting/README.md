@@ -1,30 +1,33 @@
-# React + TypeScript + Vite
+# React code splitting
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Code splitting: splitting react apps into parts and load only when needed,
+by default the entire app gets loaded all at once which can result in longer load time.
 
-Currently, two official plugins are available:
+In other to code split something we use a dynamic import(only import code when it's been used).
+The dynamic import returns a promise which then gives us access to module object, if what is imported is a default export we use `module.default`, if it's not we replace `default` with the named export
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
+Without code splitting
 
 ```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+import sum from "./src/sum.tsx";
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+```js
+<button onClick={() => alert(sum(2, 2))}>add 2+2</button>
+```
+
+With code splitting
+
+```js
+<button
+  onClick={() => {
+    import("../sum.tsx").then((module) => {
+      alert(module.sum(2, 2));
+    });
+  }}
+>
+  add 2+2
+</button>
+```
+
+Here we are importing a sum function that takes two args and alerts the result when the button is clicked
