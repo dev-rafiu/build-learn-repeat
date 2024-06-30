@@ -3,20 +3,22 @@
 Code splitting: splitting react apps into parts and load only when needed,
 by default the entire app gets loaded all at once which can result in longer load time.
 
-In other to code split something we use a dynamic import(only import code when it's been used).
-The dynamic import returns a promise which then gives us access to module object, if what is imported is a default export we use `module.default`, if it's not we replace `default` with the named export
+In other to code split our code we use a dynamic import(only import code when it's been used),
+the dynamic import returns a promise which then resolves to a module.
 
-Without code splitting
+## import()
+
+The best way to introduce code-splitting into your app is through the dynamic import() syntax.
+
+### before
 
 ```js
-import sum from "./src/sum.tsx";
+import sum from "./sum";
+
+<button onClick={() => alert(sum(2, 2))}>add 2+2</button>;
 ```
 
-```js
-<button onClick={() => alert(sum(2, 2))}>add 2+2</button>
-```
-
-With code splitting
+### after
 
 ```js
 <button
@@ -30,4 +32,69 @@ With code splitting
 </button>
 ```
 
-Here we are importing a sum function that takes two args and alerts the result when the button is clicked
+## React.lazy
+
+React lazy defers a component's code until it is rendered for the first time.
+
+## before
+
+```js
+import SomeComponent from "./Path";
+```
+
+## after
+
+```js
+const SomeComponent = React.lazy(() => import("./path"));
+```
+
+`React.lazy` takes a function that must call a dynamic import(). This must return a Promise which resolves to a module with a default export containing a React component. ({default:ReactComponent})
+
+The lazy component should then be rendered inside a Suspense component, which allows us to show some fallback content (such as a loading indicator) while we’re waiting for the lazy component to load.
+
+```js
+import React, { Suspense } from "react";
+
+const OtherComponent = React.lazy(() => import("./OtherComponent"));
+
+function MyComponent() {
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <OtherComponent />
+      </Suspense>
+    </div>
+  );
+}
+```
+
+NB: React.lazy currently only supports default exports. If the module you want to import uses named exports, you can create an intermediate module that reexports it as the default. This ensures that tree shaking keeps working and that you don’t pull in unused components.
+
+```js
+// ManyComponents.js
+export const MyComponent = /* ... */;
+export const MyUnusedComponent = /* ... */;
+```
+
+```js
+// MyComponent.js
+export { MyComponent as default } from "./ManyComponents.js";
+```
+
+```js
+import React, { lazy } from "react";
+
+const MyComponent = lazy(() => import("./MyComponent.js"));
+```
+
+## or
+
+```js
+import React, { lazy } from "react";
+
+const MyComponent = lazy(() =>
+  import("./MyComponent.js").then((module) => ({
+    default: module.ComponentName,
+  }))
+);
+```
