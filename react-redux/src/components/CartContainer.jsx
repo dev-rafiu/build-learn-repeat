@@ -4,14 +4,13 @@ import { connect } from "react-redux";
 import CartItem from "./CartItem";
 import { CLEAR_CART, GET_TOTALS } from "../actions";
 
-const CartContainer = ({ cart = [], totalAmount, dispatch }) => {
+function CartContainer({ cart = [], totalAmount, dispatch }) {
   useEffect(() => {
     dispatch({ type: GET_TOTALS });
   });
 
   return (
     <section className="cart">
-      {/* cart header */}
       <header>
         <h2>your bag</h2>
       </header>
@@ -20,10 +19,11 @@ const CartContainer = ({ cart = [], totalAmount, dispatch }) => {
         <h4 className="empty-cart">is currently empty</h4>
       ) : (
         <>
-          {/* cart items */}
-          {cart.map((item) => {
-            return <CartItem key={item.id} {...item} />;
-          })}
+          <div>
+            {cart.map((item) => {
+              return <CartItem key={item.id} {...item} />;
+            })}
+          </div>
 
           <footer>
             <hr />
@@ -43,7 +43,7 @@ const CartContainer = ({ cart = [], totalAmount, dispatch }) => {
       )}
     </section>
   );
-};
+}
 
 function mapStateToProps(state) {
   return { cart: state.cart, totalAmount: state.totalAmount };

@@ -1,7 +1,7 @@
 import { REMOVE, TOGGLE_AMOUNT } from "../actions";
 import { connect } from "react-redux";
 
-const CartItem = ({ img, title, price, amount, remove, toggle }) => {
+function CartItem({ img, title, price, amount, remove, toggle }) {
   return (
     <div className="cart-item">
       <img src={img} alt={title} />
@@ -9,24 +9,20 @@ const CartItem = ({ img, title, price, amount, remove, toggle }) => {
         <h4>{title}</h4>
         <h4 className="item-price">${price}</h4>
 
-        {/* remove button */}
         <button onClick={() => remove()} className="remove-btn">
           remove
         </button>
       </div>
 
       <div>
-        {/* increase amount */}
         <button onClick={() => toggle("inc")} className="amount-btn">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
             <path d="M10.707 7.05L10 6.343 4.343 12l1.414 1.414L10 9.172l4.243 4.242L15.657 12z" />
           </svg>
         </button>
 
-        {/* amount */}
         <p className="amount">{amount}</p>
 
-        {/* decrease amount */}
         <button
           onClick={() => (amount == 1 ? remove() : toggle("dec"))}
           className="amount-btn"
@@ -38,7 +34,7 @@ const CartItem = ({ img, title, price, amount, remove, toggle }) => {
       </div>
     </div>
   );
-};
+}
 
 function mapDispatchToProps(dispatch, ownProps) {
   const { id } = ownProps;

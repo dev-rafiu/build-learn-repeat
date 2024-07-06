@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-const Navbar = ({ totalItems }) => {
+function Navbar({ totalItems }) {
   return (
     <nav>
       <div className="nav-center">
@@ -16,7 +16,7 @@ const Navbar = ({ totalItems }) => {
       </div>
     </nav>
   );
-};
+}
 
 function mapStateToProps(state) {
   return { totalItems: state.totalItems };
