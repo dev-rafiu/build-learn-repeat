@@ -105,13 +105,39 @@ nav {
   align-items: center;
 }
 
+.task-list-wrapper {
+  max-width: 20rem;
+  width: 100%;
+  margin: 3rem auto;
+}
+
+.task-list {
+  list-style: none;
+  list-style-position: inside;
+  display: grid;
+  gap: 1rem;
+}
+
+.list {
+  display: flex;
+  gap: 2rem;
+}
+
+.remove-btn {
+  background-color: transparent;
+  color: var(--clr-primary);
+  box-shadow: none;
+
+  text-transform: lowercase;
+}
+
 .total-amount {
   font-size: 2rem;
 }
 
 .clear-btn {
   background: transparent;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 2rem;
   color: var(--clr-red-dark);
   border: 1px solid var(--clr-red-dark);
   margin-top: 2.25rem;

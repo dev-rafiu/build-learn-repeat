@@ -23,6 +23,8 @@ function FormContainer({ dispatch }: { dispatch: Dispatch }) {
       title: taskInputRef.current?.value,
     };
 
+    taskInputRef.current.value = "";
+
     dispatch({ type: ADD_TASK, payload: newTask });
   };
 

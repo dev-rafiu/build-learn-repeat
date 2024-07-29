@@ -9,7 +9,7 @@ export interface AddTaskAction {
 
 export interface RemoveTaskAction {
   type: typeof REMOVE_TASK;
-  payload: { id: number };
+  payload: { id: string };
 }
 
 export interface ClearListAction {
@@ -31,22 +31,22 @@ export function reducer(
   action: ActionTypes
 ): TState {
   if (action.type == ADD_TASK) {
-    console.log(action.payload);
-    // console.log(state);
-
     return { ...state, taskList: [...state.taskList, action.payload] };
   }
 
   if (action.type === REMOVE_TASK) {
-    console.log("remove task");
+    const filteredTasks = state.taskList.filter((item) => {
+      return item.id !== action.payload.id;
+    });
+    return { ...state, taskList: filteredTasks };
   }
 
   if (action.type === CLEAR_LIST) {
-    console.log("clear list");
+    return { ...state, taskList: [] };
   }
 
   if (action.type === GET_TOTALS) {
-    console.log("get total");
+    return { ...state, totalItems: state.taskList.length };
   }
 
   return state;
