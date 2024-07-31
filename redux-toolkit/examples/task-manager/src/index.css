@@ -34,13 +34,7 @@ body {
   line-height: 1.5;
   font-size: 0.875rem;
 }
-a {
-  text-decoration: none;
-}
-img {
-  width: 100%;
-  display: block;
-}
+
 h1,
 h2,
 h3,
@@ -65,6 +59,7 @@ h4 {
 p {
   margin-bottom: 1.25rem;
 }
+
 @media screen and (min-width: 800px) {
   h1 {
     font-size: 4rem;
@@ -160,40 +155,46 @@ nav svg {
   margin-bottom: 0;
   font-size: 1.25rem;
 }
-/*
-=============== 
-Cart
-===============
-*/
-.cart {
-  min-height: calc(100vh - 120px);
-  width: 90vw;
-  margin: 0 auto;
-  margin-top: 40px;
-  padding: 2.5rem 0;
-  max-width: var(--fixed-width);
-}
-.cart h2 {
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 3rem;
-}
-.empty-cart {
-  text-transform: lowercase;
-  color: var(--clr-grey-5);
-  margin-top: 1rem;
-  text-align: center;
-}
-.cart footer {
-  margin-top: 4rem;
-  text-align: center;
-}
-.cart-total h4 {
-  text-transform: capitalize;
+
+form {
   display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 5rem;
 }
+
+form input {
+  width: 20rem;
+}
+
+.input,
+.btn {
+  padding: 0.375rem 0.75rem;
+  border-radius: 4px;
+  letter-spacing: 5px;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.task-list-wrapper {
+  width: 100%;
+  max-width: 25rem;
+  margin: 2rem auto;
+}
+
+.task-list {
+  list-style: none;
+  list-style-position: inside;
+  display: grid;
+  gap: 1rem;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
 .clear-btn,
 .confirm-btn {
   background: transparent;
@@ -217,26 +218,7 @@ Cart
 Cart Item
 ===============
 */
-.cart-item {
-  display: grid;
-  align-items: center;
-  grid-template-columns: auto 1fr auto;
-  grid-column-gap: 1.5rem;
-  margin: 1.5rem 0;
-}
-.cart-item img {
-  width: 5rem;
-  height: 5rem;
-  object-fit: cover;
-}
-.cart-item h4 {
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  letter-spacing: 2px;
-}
-.item-price {
-  color: var(--clr-grey-5);
-}
+
 .remove-btn {
   color: var(--clr-primary);
   letter-spacing: var(--spacing);

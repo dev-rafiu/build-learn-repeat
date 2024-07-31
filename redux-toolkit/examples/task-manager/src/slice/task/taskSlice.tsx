@@ -1,32 +1,44 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Task } from "../../definitions";
 
-type TState = {
+export type TState = {
   tasks: Task[];
+  totalTasks: number;
 };
 
 const initialState: TState = {
   tasks: [],
+  totalTasks: 0,
 };
 
-const cartSlice = createSlice({
+const taskSlice = createSlice({
   name: "tasks",
   initialState,
   reducers: {
     addTask(state, action) {
-      state.tasks.push(action.payload);
+      // state.tasks.push(action.payload);
+      return { ...state, tasks: [...state.tasks, action.payload] };
     },
 
     deleteTask(state, action) {
-      state.tasks.filter((item) => item.id === action.payload);
+      // state.tasks = state.tasks.filter((item) => item.id == action.payload);
+      return {
+        ...state,
+        tasks: state.tasks.filter((task) => task.id != action.payload),
+      };
     },
 
     clearTasks(state) {
       state.tasks = [];
     },
+
+    getTotalTasks(state) {
+      state.totalTasks = state.tasks.length;
+    },
   },
 });
 
-export const { addTask, clearTasks, deleteTask } = cartSlice.actions;
+export const { addTask, clearTasks, deleteTask, getTotalTasks } =
+  taskSlice.actions;
 
-export default cartSlice.reducer;
+export default taskSlice.reducer;
