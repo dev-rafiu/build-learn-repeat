@@ -1,12 +1,12 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Task } from "../../definitions";
 
-export type TState = {
+export type TaskState = {
   tasks: Task[];
   totalTasks: number;
 };
 
-const initialState: TState = {
+const initialState: TaskState = {
   tasks: [],
   totalTasks: 0,
 };
@@ -17,11 +17,13 @@ const taskSlice = createSlice({
   reducers: {
     addTask(state, action) {
       // state.tasks.push(action.payload);
+
       return { ...state, tasks: [...state.tasks, action.payload] };
     },
 
-    deleteTask(state, action) {
+    deleteTask(state, action: PayloadAction<string>) {
       // state.tasks = state.tasks.filter((item) => item.id == action.payload);
+
       return {
         ...state,
         tasks: state.tasks.filter((task) => task.id != action.payload),

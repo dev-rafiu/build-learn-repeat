@@ -1,10 +1,14 @@
-import { useDispatch, useSelector } from "react-redux";
 import { Task } from "../definitions";
 import { clearTasks, deleteTask } from "../slice/task/taskSlice";
+import { useAppSelector, useAppDispatch } from "../hooks"; // with TS
+// import { useDispatch, useSelector } from "react-redux";
 
 function TaskList() {
-  const { tasks } = useSelector((store) => store.tasks);
-  const dispatch = useDispatch();
+  // const { tasks } = useSelector((store) => store.tasks); //before TS
+  const { tasks } = useAppSelector((state) => state.tasks); //after TS
+
+  // const dispatch = useDispatch(); // before TS
+  const dispatch = useAppDispatch(); //after TS
 
   return (
     <div className="task-list-wrapper">
@@ -15,7 +19,6 @@ function TaskList() {
           return (
             <li key={id} className="list">
               <span>{title}</span>
-
               <button
                 onClick={() => dispatch(deleteTask(id))}
                 className="remove-btn btn"
