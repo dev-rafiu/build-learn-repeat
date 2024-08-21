@@ -1,7 +1,7 @@
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../hooks";
 
 function Navbar() {
-  const { totalTasks } = useSelector((store) => store.tasks);
+  const { totalTasks } = useAppSelector((store) => store.tasks);
 
   return (
     <nav>

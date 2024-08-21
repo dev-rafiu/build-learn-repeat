@@ -1,12 +1,12 @@
 /* eslint-disable react-refresh/only-export-components */
 import { FormEvent, useRef } from "react";
 import { addTask } from "../slice/task/taskSlice";
-import { useDispatch } from "react-redux";
 import { Task } from "../definitions";
+import { useAppDispatch } from "../hooks";
 
 function FormContainer() {
   const taskInputRef = useRef<HTMLInputElement>(null);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();

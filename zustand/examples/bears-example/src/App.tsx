@@ -4,14 +4,15 @@ import {
   ResetBears,
   UpdateBears,
 } from "./componments/ActionButtons";
-import { useBearStore } from "./store/useBearsStore";
+import { useBearStore } from "./store/useBearStore";
 
 function App() {
-  const bears = useBearStore((state) => state.bears);
+  // const bears = useBearStore((state) => state.bears);
+  const { bears } = useBearStore((state) => state);
 
   return (
     <>
-      <h1>{bears} Bears</h1>
+      <h1 className="bears-count">{bears} Bears</h1>
 
       <ul className="button-list">
         <li>

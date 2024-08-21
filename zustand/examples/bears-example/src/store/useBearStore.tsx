@@ -1,14 +1,17 @@
 import { create } from "zustand";
 
-interface Store {
+type State = {
   bears: number;
+};
+
+type Action = {
   increaseBears: () => void;
   decreaseBears: () => void;
   updateBears: (num: number) => void;
   resetBears: () => void;
-}
+};
 
-export const useBearStore = create<Store>()((set) => ({
+export const useBearStore = create<State & Action>()((set) => ({
   bears: 0,
   increaseBears: () => set((state) => ({ bears: state.bears + 1 })),
   decreaseBears: () =>

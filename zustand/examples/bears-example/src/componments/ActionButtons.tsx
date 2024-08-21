@@ -1,4 +1,4 @@
-import { useBearStore } from "../store/useBearsStore";
+import { useBearStore } from "../store/useBearStore";
 
 export const IncBears = () => {
   const increaseBears = useBearStore((state) => state.increaseBears);

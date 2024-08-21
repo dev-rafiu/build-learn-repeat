@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Task } from "../../definitions";
 
-export type TaskState = {
+export type State = {
   tasks: Task[];
   totalTasks: number;
 };
 
-const initialState: TaskState = {
+const initialState: State = {
   tasks: [],
   totalTasks: 0,
 };
