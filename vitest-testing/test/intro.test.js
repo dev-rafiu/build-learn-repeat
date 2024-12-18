@@ -37,7 +37,7 @@ describe("fizzBuzz", () => {
 });
 
 describe("factorial", () => {
-  it("returns the factorial of a number", () => {
+  it("returns the factorial of a given number", () => {
     expect(factorial(4)).toBe(24);
   });
 });
