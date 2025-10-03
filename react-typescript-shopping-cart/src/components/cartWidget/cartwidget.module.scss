@@ -1,0 +1,16 @@
+.cartBtn {
+  margin: 1rem;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.5rem;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  color: #fff;
+
+  .productsCount {
+    color: orange;
+  }
+}

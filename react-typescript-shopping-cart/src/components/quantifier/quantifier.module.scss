@@ -1,0 +1,23 @@
+.quantifier {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  border: 1px solid #213547;
+  width: max-content;
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+
+  button {
+    border-radius: 3px;
+    color: #213547;
+    font-size: 0.8rem;
+    border: none;
+    cursor: pointer;
+  }
+
+  .quantity {
+    color: #213547;
+    font-weight: bold;
+    font-size: 0.8rem;
+  }
+}

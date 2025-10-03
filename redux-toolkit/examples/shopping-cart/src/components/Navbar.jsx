@@ -5,9 +5,10 @@ function Navbar() {
   const { quantity } = useSelector((store) => store.cart);
 
   return (
-    <nav>
+    <nav className="">
       <div className="nav-center">
         <h3>redux toolkit</h3>
+
         <div className="nav-container">
           <CartIcon />
           <div className="amount-container">

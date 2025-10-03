@@ -14,7 +14,7 @@ function CartItem({ id, img, title, price, amount }) {
     <article className="cart-item">
       <img src={img} alt={title} />
 
-      <div>
+      <div className="">
         <h4>{title}</h4>
         <h4 className="item-price">${price}</h4>
         <button onClick={() => dispatch(remove(id))} className="remove-btn">
@@ -22,7 +22,7 @@ function CartItem({ id, img, title, price, amount }) {
         </button>
       </div>
 
-      <div>
+      <div className="">
         <button
           onClick={() => dispatch(increaseQuantity(id))}
           className="amount-btn"

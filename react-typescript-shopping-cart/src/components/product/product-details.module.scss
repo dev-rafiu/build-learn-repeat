@@ -1,0 +1,47 @@
+.productDetails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  .productImg {
+    display: block;
+    max-width: 450px;
+    width: 100%;
+    height: 28rem;
+    object-fit: cover;
+    border-radius: 4px;
+    background-color: rgb(209, 213, 219);
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .productTitle {
+    line-height: 1;
+    font-weight: bold;
+    // text-transform: capitalize;
+  }
+
+  .productDesc {
+    max-width: 400px;
+  }
+}
+
+.homeLink {
+  display: block;
+  text-decoration: none;
+  color: #213547;
+  margin-top: 5rem;
+  text-align: center;
+
+  @media (hover: hover) {
+    &:hover {
+      color: hsl(205, 78%, 60%);
+    }
+  }
+}
