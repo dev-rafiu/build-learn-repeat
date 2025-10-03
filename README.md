@@ -4,11 +4,11 @@ Keeping track of my progress in learning new tools and technologies, deep dive a
 
 ## framesworks/libraries
 
-- Next.js (deep dive)
-- Tailwind CSS (deep dive)
-- React Js (deep dive)
-- React Query/Tanstack Query (deep dive)
-- zod(typescript-first schema validation library) with react hook form
+- Next.js 
+- Tailwind CSS
+- React Js
+- React Query/Tanstack Query
+
 
 ## state management
 
@@ -28,14 +28,9 @@ Keeping track of my progress in learning new tools and technologies, deep dive a
 
 - Renting Marketplace
 - Online Marketplace
-- Music Player
-- Portfolio Website
-- Simple Blog
-- Expense Tracker
-- Quiz App
 
 ### Current projects
 
 - react-hook-form
-- react-redux
 - react-pagination
+- redux & redux-toolkit
