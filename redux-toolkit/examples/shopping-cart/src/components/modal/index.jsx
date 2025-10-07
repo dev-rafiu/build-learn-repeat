@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
-import { closeModal } from "../slice/modal/modalSlice";
-import { clearCart } from "../slice/cart/cartSlice";
+import { closeModal } from "../../slice/modal/modalSlice";
+import { clearCart } from "../../slice/cart/cartSlice";
 
-function Modal() {
+export const Modal = () => {
   const dispatch = useDispatch();
 
   return (
@@ -33,6 +33,4 @@ function Modal() {
       </div>
     </aside>
   );
-}
-
-export default Modal;
+};

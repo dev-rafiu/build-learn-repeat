@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import CartContainer from "./components/CartContainer";
-import Navbar from "./components/Navbar";
+import { CartContainer } from "./components/cart-container";
+import { Navbar } from "./components/navbar";
 import { calculateTotal, setCartFromProducts } from "./slice/cart/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
-import Modal from "./components/Modal";
+import { Modal } from "./components/Modal";
 import { useGetProductsQuery } from "./services/productsApi";
 
 function App() {
