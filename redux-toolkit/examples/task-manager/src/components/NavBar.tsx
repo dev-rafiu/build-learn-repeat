@@ -1,7 +1,8 @@
 import { useAppSelector } from "../hooks";
+import { selectTotalTasks } from "../slice/task/taskSelectors";
 
 function Navbar() {
-  const { totalTasks } = useAppSelector((store) => store.tasks);
+  const totalTasks = useAppSelector(selectTotalTasks);
 
   return (
     <nav>

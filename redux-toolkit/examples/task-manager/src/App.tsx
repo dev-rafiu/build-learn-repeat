@@ -1,19 +1,8 @@
-import { useEffect } from "react";
-import FormContainer from "./components/formContainer";
-import Navbar from "./components/nav-bar";
-import { getTotalTasks } from "./slice/task/taskSlice";
-import { useDispatch } from "react-redux";
-import TaskList from "./components/taskList";
-import { useAppSelector } from "./hooks";
+import FormContainer from "./components/FormContainer";
+import Navbar from "./components/NavBar";
+import TaskList from "./components/TaskList";
 
 function App() {
-  const dispatch = useDispatch();
-  const { tasks } = useAppSelector((store) => store.tasks);
-
-  useEffect(() => {
-    dispatch(getTotalTasks());
-  }, [tasks]);
-
   return (
     <>
       <Navbar />

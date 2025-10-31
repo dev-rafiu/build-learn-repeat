@@ -5,7 +5,7 @@ import { useAppSelector, useAppDispatch } from "../hooks"; // with TS
 
 function TaskList() {
   // const { tasks } = useSelector((store) => store.tasks); //before TS
-  const { tasks } = useAppSelector((state) => state.tasks); //after TS
+  const { tasks } = useAppSelector((state) => state.taskSlice); //after TS
 
   // const dispatch = useDispatch(); // before TS
   const dispatch = useAppDispatch(); //after TS
@@ -15,6 +15,7 @@ function TaskList() {
       <ul className="task-list">
         {tasks.map((task: Task) => {
           const { id, title } = task;
+
           return (
             <li key={id} className="list">
               <span>{title}</span>

@@ -3,12 +3,10 @@ import { Task } from "../../definitions";
 
 export type State = {
   tasks: Task[];
-  totalTasks: number;
 };
 
 const initialState: State = {
   tasks: [],
-  totalTasks: 0,
 };
 
 const taskSlice = createSlice({
@@ -33,14 +31,9 @@ const taskSlice = createSlice({
     clearTasks(state) {
       state.tasks = [];
     },
-
-    getTotalTasks(state) {
-      state.totalTasks = state.tasks.length;
-    },
   },
 });
 
-export const { addTask, clearTasks, deleteTask, getTotalTasks } =
-  taskSlice.actions;
+export const { addTask, clearTasks, deleteTask } = taskSlice.actions;
 
 export default taskSlice.reducer;
